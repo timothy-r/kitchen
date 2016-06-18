@@ -1,8 +1,8 @@
 {
   "name": "listkitchens",
   "runtime": "nodejs4.3",
-  "description": "Filters kitchens",
-  "customName": false,
+  "description": "Filters kitchen resources",
+  "customName": "$${functionName}",
   "customRole": false,
   "handler": "handler.handler",
   "timeout": 6,

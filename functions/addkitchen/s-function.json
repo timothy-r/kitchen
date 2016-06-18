@@ -2,7 +2,7 @@
   "name": "addkitchen",
   "runtime": "nodejs4.3",
   "description": "Add a kitchen",
-  "customName": false,
+  "customName": "$${functionName}",
   "customRole": false,
   "handler": "handler.handler",
   "timeout": 6,

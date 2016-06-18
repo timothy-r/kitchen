@@ -9,5 +9,6 @@
       "contentTypeValue": "$input.params().header.get('Content-Type')",
       "acceptValue": "$input.params().header.get('Accept')"
     }
-  }
+  },
+  "functionName": "${project}-${stage}-${name}"
 }
