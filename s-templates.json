@@ -54,5 +54,13 @@
       "application/json": "{\"error\": \"Gateway Timeout\"}"
     }
   },
-  "responseParameters": {}
+  "responseParameters": {},
+
+  "dbTableName" : "${project}-${stage}-kitchen",
+
+  "readCapacityUnits" : "",
+  "writeCapacityUnits" : "",
+  "hashKeyElementName" : "",
+  "hashKeyElementType": ""
+
 }
