@@ -1,8 +1,9 @@
 {
-  "apiGatewayRequestTemplate": {
+  "requestTemplate": {
     "application/json": {
-      "httpMethod": "$context.httpMethod",
+      "method": "$context.httpMethod",
       "body": "$input.json('$')",
+      "path": "$context.resourcePath",
       "queryParams": "$input.params().querystring",
       "headerParams": "$input.params().header",
       "headerParamNames": "$input.params().header.keySet()",
@@ -10,5 +11,47 @@
       "acceptValue": "$input.params().header.get('Accept')"
     }
   },
-  "functionName": "${project}-${stage}-${name}"
+
+  "functionName": "${project}-${stage}-${name}",
+
+  "responseTemplate": {
+    "^(?!.*(Unauthorized|Process exited|Task timed out)).*..*": "$${response400}",
+    ".*Unauthorized.*": "$${response401}",
+    ".*Process exited.*": "$${response500}",
+    ".*Task timed out.*": "$${response504}",
+    "default": "$${response200}"
+  },
+  "response200": {
+    "statusCode": "200",
+    "responseParameters": "$${responseParameters}",
+    "responseTemplates": {
+      "application/json": ""
+    }
+  },
+  "response400": {
+    "statusCode": "400",
+    "responseModels": {},
+    "responseTemplates": {
+      "application/json": "{\"error\": \"$input.path('$.errorMessage')\"}"
+    }
+  },
+  "response401": {
+    "statusCode": "401",
+    "responseModels": {},
+    "responseTemplates": {
+      "application/json": "{\"error\": \"$input.path('$.errorMessage')\"}"
+    }
+  },
+  "response500": {
+    "statusCode": "500",
+    "responseTemplates": {
+      "application/json": "{\"error\": \"Server Error\"}"
+    }
+  },
+  "response504": {
+    "statusCode": "504",
+    "responseTemplates": {
+      "application/json": "{\"error\": \"Gateway Timeout\"}"
+    }
+  }
 }

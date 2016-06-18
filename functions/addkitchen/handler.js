@@ -2,6 +2,9 @@
 
 module.exports.handler = function(event, context, cb) {
   return cb(null,
-    {"id" : "abcdefg", "style": "modern"}
+      {
+          "kitchen": {"id": "abcdefg", "style": "modern"},
+          "request": event
+      }
   );
 };
