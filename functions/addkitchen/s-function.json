@@ -13,7 +13,7 @@
   },
   "endpoints": [
     {
-      "path": "addkitchen",
+      "path": "kitchens",
       "method": "PUT",
       "type": "AWS",
       "authorizationType": "none",
