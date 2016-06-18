@@ -53,5 +53,6 @@
     "responseTemplates": {
       "application/json": "{\"error\": \"Gateway Timeout\"}"
     }
-  }
+  },
+  "responseParameters": {}
 }
