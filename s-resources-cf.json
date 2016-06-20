@@ -51,22 +51,21 @@
     },
     "dynamoDBTable" : {
       "Type" : "AWS::DynamoDB::Table",
-      "TableName" : "${dbTableName}",
       "Properties" : {
         "AttributeDefinitions": [
           {
-          "AttributeName" : "${hashKeyElementName}",
-          "AttributeType" : "${hashKeyElementType}"
+          "AttributeName" : "$${hashKeyElementName}",
+          "AttributeType" : "S"
         } ],
         "KeySchema": [
           {
-            "AttributeName": "${hashKeyElementName}",
+            "AttributeName": "$${hashKeyElementName}",
             "KeyType": "HASH"
           }
         ],
         "ProvisionedThroughput" : {
-          "ReadCapacityUnits" : "${readCapacityUnits}",
-          "WriteCapacityUnits" : "${writeCapacityUnits}"
+          "ReadCapacityUnits" : "$${readCapacityUnits}",
+          "WriteCapacityUnits" : "$${writeCapacityUnits}"
         }
       }
     }
@@ -82,7 +81,7 @@
       }
     },
     "TableName" : {
-      "Value" : "${dbTableName}",
+      "Value" : "$${dbTableName}",
       "Description" : "Table name of the newly created DynamoDB table"
     }
   }

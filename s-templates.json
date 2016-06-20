@@ -56,11 +56,10 @@
   },
   "responseParameters": {},
 
-  "dbTableName" : "${project}-${stage}-kitchen",
+  "dbTableName" : "${project}${stage}Kitchen",
 
-  "readCapacityUnits" : "",
-  "writeCapacityUnits" : "",
-  "hashKeyElementName" : "",
-  "hashKeyElementType": ""
+  "readCapacityUnits" : "1",
+  "writeCapacityUnits" : "1",
+  "hashKeyElementName" : "guid"
 
 }
