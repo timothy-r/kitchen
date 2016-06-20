@@ -60,6 +60,6 @@
 
   "readCapacityUnits" : "1",
   "writeCapacityUnits" : "1",
-  "hashKeyElementName" : "guid"
+  "hashKeyElementName" : "kitchenId"
 
 }
