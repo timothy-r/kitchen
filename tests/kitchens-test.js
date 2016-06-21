@@ -5,9 +5,8 @@
 var request = require('supertest'),
     nock = require('nock');
 
-// get this from env?
-var api_root = 'https://uqfkn5fqte.execute-api.eu-west-1.amazonaws.com/tdev/kitchens';
-var api_key = '';
+var api_root = process.env.KITCHEN_TEST;
+var api_key = process.env.API_KEY;
 
 describe('kitchens API', function() {
 
@@ -19,21 +18,51 @@ describe('kitchens API', function() {
         done();
     });
 
-    describe('GET /', function () {
+    describe('GET /kitchens', function () {
         it('list requires authentication', function (done) {
             request(api_root)
-                .get('/')
+                .get('/kitchens')
                 .set('X-Api-Key', 'invalid')
                 .expect(403, done);
         });
+
+        it('list authentication success', function (done) {
+            request(api_root)
+                .get('/kitchens')
+                .set('X-Api-Key', api_key)
+                .expect(200, done);
+        });
+
+        it('list gets json', function (done) {
+            request(api_root)
+                .get('/kitchens')
+                .set('X-Api-Key', api_key)
+                .expect('Content-Type', /json/)
+                .expect(200, done);
+        });
     });
 
-    describe('POST /', function () {
-        it('Add requires authentication', function (done) {
+    describe('POST /kitchens', function () {
+        it('add requires authentication', function (done) {
             request(api_root)
-                .get('/')
+                .post('/kitchens')
                 .set('X-Api-Key', 'invalid')
                 .expect(403, done);
+        });
+
+        it('add authentication success', function (done) {
+            request(api_root)
+                .post('/kitchens')
+                .set('X-Api-Key', api_key)
+                .expect(200, done);
+        });
+
+        it('adds a kitchen', function (done) {
+            request(api_root)
+                .post('/kitchens')
+                .send({name : 'test-kitchen'})
+                .set('X-Api-Key', api_key)
+                .expect(200, done);
         });
     });
 });

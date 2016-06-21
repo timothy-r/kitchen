@@ -9,13 +9,15 @@
     "type": "git",
     "url": "git@github.com:timothy-r/kitchen.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "uniqid": "^3.0.0"
+  },
   "devDependencies": {
     "mocha": "^2.5.3",
     "nock": "^8.0.0",
     "supertest": "^1.2.0"
   },
   "scripts": {
-    "test": "./set-up-tests.sh && node_modules/.bin/mocha --recursive tests"
+    "test": "node_modules/.bin/mocha --recursive tests"
   }
 }
