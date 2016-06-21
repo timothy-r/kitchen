@@ -14,7 +14,7 @@
   "endpoints": [
     {
       "path": "kitchens",
-      "method": "PUT",
+      "method": "POST",
       "type": "AWS",
       "authorizationType": "none",
       "authorizerFunction": false,
@@ -24,7 +24,6 @@
       "responses": "$${responseTemplate}"
     }
   ],
-  "events": [],
     "events": [],
     "environment": {
     "SERVERLESS_PROJECT": "${project}",
