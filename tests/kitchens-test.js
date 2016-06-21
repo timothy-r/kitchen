@@ -53,6 +53,7 @@ describe('kitchens API', function() {
         it('add authentication success', function (done) {
             request(api_root)
                 .post('/kitchens')
+                .send({name : 'test-kitchen-authn', style:'fifties'})
                 .set('X-Api-Key', api_key)
                 .expect(200, done);
         });
@@ -60,7 +61,7 @@ describe('kitchens API', function() {
         it('adds a kitchen', function (done) {
             request(api_root)
                 .post('/kitchens')
-                .send({name : 'test-kitchen'})
+                .send({name : 'test-kitchen', style:'avant-garde'})
                 .set('X-Api-Key', api_key)
                 .expect(200, done);
         });

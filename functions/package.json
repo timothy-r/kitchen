@@ -1,0 +1,15 @@
+{
+  "name": "kitchen",
+  "version": "0.0.1",
+  "description": "Kitchen API lambdas",
+  "author": "me",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:timothy-r/kitchen.git"
+  },
+  "dependencies": {
+    "uniqid": "^3.0.0"
+  }
+}
