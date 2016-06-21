@@ -45,7 +45,7 @@
               "Action": [
                 "*"
               ],
-              "Resource": "arn:aws:dynamodb:${region}:*:table/$${dbTableName}"
+              "Resource": "arn:aws:dynamodb:${region}:*:table/${project}-${stage}"
             }
           ]
         },
