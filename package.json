@@ -1,13 +1,13 @@
 {
   "name": "kitchen",
   "version": "0.0.1",
-  "description": "A Serverless Project and its Serverless Plugin dependencies.",
+  "description": "Kitchen API",
   "author": "me",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git://github.com/"
+    "url": "git@github.com:timothy-r/kitchen.git"
   },
   "dependencies": {}
 }
