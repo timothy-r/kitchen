@@ -1,0 +1,42 @@
+{
+  "name": "getkitchen",
+  "runtime": "nodejs4.3",
+  "description": "Get a kitchen",
+  "customName": "$${functionName}",
+  "customRole": false,
+  "handler": "handler.handler",
+  "timeout": 6,
+  "memorySize": 1024,
+  "authorizer": {},
+  "custom": {
+    "excludePatterns": []
+  },
+  "endpoints": [
+    {
+      "path": "kitchens/{id}",
+      "method": "GET",
+      "type": "AWS",
+      "authorizationType": "none",
+      "authorizerFunction": false,
+      "apiKeyRequired": true,
+      "requestParameters": {},
+      "requestTemplates": {
+        "application/json": {
+          "id": "$input.params(\"id\")"
+        }
+      },
+      "responses": "$${responseTemplate}"
+    }
+  ],
+  "events": [],
+  "environment": {
+    "SERVERLESS_PROJECT": "${project}",
+    "SERVERLESS_STAGE": "${stage}",
+    "SERVERLESS_REGION": "${region}",
+    "DB_TABLE_NAME": "$${dbTableName}"
+  },
+  "vpc": {
+    "securityGroupIds": [],
+    "subnetIds": []
+  }
+}

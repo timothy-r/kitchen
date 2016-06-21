@@ -66,4 +66,23 @@ describe('kitchens API', function() {
                 .expect(200, done);
         });
     });
+
+    describe('GET /kitchens/id', function () {
+        it('get requires authentication', function (done) {
+            request(api_root)
+                .get('/kitchens/abcde')
+                .set('X-Api-Key', 'invalid')
+                .expect(403, done);
+        });
+
+/*
+        it('get kitchen', function (done) {
+            request(api_root)
+                .get('/kitchens')
+                .set('X-Api-Key', api_key)
+                .expect('Content-Type', /json/)
+                .expect(200, done);
+        });
+        */
+    });
 });
