@@ -56,7 +56,7 @@
   },
   "responseParameters": {},
 
-  "dbTableName" : "${project}${stage}Kitchen",
+  "dbTableName" : "${project}-${stage}",
 
   "readCapacityUnits" : "1",
   "writeCapacityUnits" : "1",

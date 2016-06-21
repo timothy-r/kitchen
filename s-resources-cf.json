@@ -39,6 +39,13 @@
                 "logs:PutLogEvents"
               ],
               "Resource": "arn:aws:logs:${region}:*:*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "*"
+              ],
+              "Resource": "arn:aws:dynamodb:${region}:*:table/$${dbTableName}"
             }
           ]
         },
@@ -54,19 +61,21 @@
       "Properties" : {
         "AttributeDefinitions": [
           {
-          "AttributeName" : "$${hashKeyElementName}",
+          "AttributeName" : "id",
           "AttributeType" : "S"
-        } ],
+          }
+        ],
         "KeySchema": [
           {
-            "AttributeName": "$${hashKeyElementName}",
+            "AttributeName": "id",
             "KeyType": "HASH"
           }
         ],
         "ProvisionedThroughput" : {
-          "ReadCapacityUnits" : "$${readCapacityUnits}",
-          "WriteCapacityUnits" : "$${writeCapacityUnits}"
-        }
+          "ReadCapacityUnits" : "1",
+          "WriteCapacityUnits" : "1"
+        },
+        "TableName": "$${dbTableName}"
       }
     }
   },
@@ -79,10 +88,6 @@
           "Arn"
         ]
       }
-    },
-    "TableName" : {
-      "Value" : "$${dbTableName}",
-      "Description" : "Table name of the newly created DynamoDB table"
     }
   }
 }
