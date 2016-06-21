@@ -14,7 +14,7 @@
   "endpoints": [
     {
       "path": "kitchens",
-      "method": "PUT",
+      "method": "POST",
       "type": "AWS",
       "authorizationType": "none",
       "authorizerFunction": false,
@@ -28,7 +28,8 @@
   "environment": {
     "SERVERLESS_PROJECT": "${project}",
     "SERVERLESS_STAGE": "${stage}",
-    "SERVERLESS_REGION": "${region}"
+    "SERVERLESS_REGION": "${region}",
+    "DB_TABLE_NAME": "$${dbTableName}"
   },
   "vpc": {
     "securityGroupIds": [],

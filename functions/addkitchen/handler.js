@@ -1,10 +1,31 @@
 'use strict';
 
+var AWS = require('aws-sdk');
+    //uniqid = require('uniqid');
+
+//var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+//var docClient = dynamodb.DocumentClient;
+
+var docClient = new AWS.DynamoDB.DocumentClient();
+
 module.exports.handler = function(event, context, cb) {
-  return cb(null,
-      {
-          "kitchen": {"id": "abcdefg", "style": "modern"},
-          "request": event
-      }
-  );
+
+    var id = '0' + (Math.floor(Math.random() * Number.MAX_SAFE_INTEGER) + 1);
+
+    var params = {
+        TableName: process.env.DB_TABLE_NAME,
+        Item: {
+            id: id,
+            info: {
+                name: event.body.name ,
+                style: event.body.style
+            }
+        }
+    };
+
+    console.log("Putting : " + JSON.stringify(params));
+
+    docClient.put(params, function(err, data) {
+        return cb(err, params.Item);
+    });
 };
