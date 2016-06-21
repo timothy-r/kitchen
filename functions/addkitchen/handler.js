@@ -3,9 +3,6 @@
 var AWS = require('aws-sdk');
     //uniqid = require('uniqid');
 
-//var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
-//var docClient = dynamodb.DocumentClient;
-
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 module.exports.handler = function(event, context, cb) {
