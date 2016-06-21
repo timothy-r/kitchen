@@ -11,9 +11,7 @@
       "acceptValue": "$input.params().header.get('Accept')"
     }
   },
-
   "functionName": "${project}-${stage}-${name}",
-
   "responseTemplate": {
     "^(?!.*(Unauthorized|Process exited|Task timed out)).*..*": "$${response400}",
     ".*Unauthorized.*": "$${response401}",
@@ -55,11 +53,8 @@
     }
   },
   "responseParameters": {},
-
-  "dbTableName" : "${project}-${stage}",
-
-  "readCapacityUnits" : "1",
-  "writeCapacityUnits" : "1",
-  "hashKeyElementName" : "kitchenId"
-
+  "dbTableName": "${project}-${stage}",
+  "readCapacityUnits": "1",
+  "writeCapacityUnits": "1",
+  "hashKeyElementName": "kitchenId"
 }

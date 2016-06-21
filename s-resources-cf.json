@@ -56,13 +56,13 @@
         ]
       }
     },
-    "dynamoDBTable" : {
-      "Type" : "AWS::DynamoDB::Table",
-      "Properties" : {
+    "dynamoDBTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
         "AttributeDefinitions": [
           {
-          "AttributeName" : "id",
-          "AttributeType" : "S"
+            "AttributeName": "id",
+            "AttributeType": "S"
           }
         ],
         "KeySchema": [
@@ -71,9 +71,9 @@
             "KeyType": "HASH"
           }
         ],
-        "ProvisionedThroughput" : {
-          "ReadCapacityUnits" : "1",
-          "WriteCapacityUnits" : "1"
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": "1",
+          "WriteCapacityUnits": "1"
         },
         "TableName": "$${dbTableName}"
       }

@@ -24,8 +24,8 @@
       "responses": "$${responseTemplate}"
     }
   ],
-    "events": [],
-    "environment": {
+  "events": [],
+  "environment": {
     "SERVERLESS_PROJECT": "${project}",
     "SERVERLESS_STAGE": "${stage}",
     "SERVERLESS_REGION": "${region}",

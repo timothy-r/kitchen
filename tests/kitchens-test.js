@@ -23,6 +23,7 @@ describe('kitchens API', function() {
         it('list requires authentication', function (done) {
             request(api_root)
                 .get('/')
+                .set('X-Api-Key', 'invalid')
                 .expect(403, done);
         });
     });
@@ -31,6 +32,7 @@ describe('kitchens API', function() {
         it('Add requires authentication', function (done) {
             request(api_root)
                 .get('/')
+                .set('X-Api-Key', 'invalid')
                 .expect(403, done);
         });
     });
