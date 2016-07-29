@@ -14,7 +14,15 @@ module.exports.handler = function(event, context, cb) {
   };
 
   docClient.get(params, function(err, data) {
-    return cb(err, data);
+
+    if (err) {
+      return cb(err);
+    }
+
+    var kitchen = data.Item.info;
+    kitchen.id = data.Item.id;
+
+    return cb(null, kitchen);
   });
 
 };
