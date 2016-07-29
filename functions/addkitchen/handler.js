@@ -23,6 +23,10 @@ module.exports.handler = function(event, context, cb) {
     console.log("Putting : " + JSON.stringify(params));
 
     docClient.put(params, function(err, data) {
-        return cb(err, params.Item);
+        return cb(err, {
+            id: id,
+            name: event.body.name,
+            style: event.body.style
+        });
     });
 };
